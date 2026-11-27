@@ -174,10 +174,11 @@ def main():
              "300 km east of Moscow. Russia hit a Kyiv shopping mall in "
              "reply: 7 hurt.",
              font(15), half, 19)
-    # 5 jet silhouettes
+    # 5 jet silhouettes, centred in the column so the first jet clears
+    # the outer frame rule (was starting 6 px inside it, looked clipped)
     jx, jy = x, y + 8
     for i in range(5):
-        cx = jx + 18 + i * 92
+        cx = jx + 50 + i * 92
         # fuselage: pointed nose, tapered tail
         d.polygon([(cx - 28, jy + 17), (cx + 24, jy + 17), (cx + 32, jy + 20),
                    (cx + 24, jy + 23), (cx - 28, jy + 23)], fill=(70, 66, 60))
