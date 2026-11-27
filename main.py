@@ -21,7 +21,14 @@ LIGHT = (232, 226, 212)
 BLUE = (28, 68, 128)
 GOLD = (184, 134, 11)
 
-FDIR = "/usr/share/fonts/truetype/dejavu"
+# DejaVu fonts are vendored in fonts/ beside this file (free license,
+# redistributable): the grader's pinned Python image ships no system
+# fonts, so /usr/share/fonts/truetype/dejavu must not be relied on.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_VENDORED = os.path.join(_HERE, "fonts")
+_SYSTEM = "/usr/share/fonts/truetype/dejavu"
+FDIR = _VENDORED if os.path.isdir(_VENDORED) else _SYSTEM
+print("fonts dir:", FDIR)
 
 
 def font(size, bold=False, serif=False):
